@@ -17,7 +17,9 @@ namespace nuget_dep
             }
 
             var dependencyXmlFile = args[0];
-            var nuspecFileName = dependencyXmlFile.Substring(0, dependencyXmlFile.LastIndexOf(".dependencies.xml", StringComparison.Ordinal));
+            var dependencyXmlFileName = Path.GetFileName(dependencyXmlFile);
+
+            var nuspecFileName = dependencyXmlFileName.Substring(0, dependencyXmlFileName.LastIndexOf(".dependencies.xml", StringComparison.Ordinal));
             var nugetPackage = args[1];
 
             Console.WriteLine("Applying dependencies listed in '{0}' to '{1}'", dependencyXmlFile, nugetPackage);
